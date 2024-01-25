@@ -2,7 +2,7 @@
 //  Prompt User about game and rules
 //  User enters choice [rock, paper, scissors]
 //  User gets result for current round
-//  Repeat rounds till best out of three wins
+//  Repeat rounds till best out of five wins
 
 const choice = ["rock", "paper", "scissors"]; 
 
@@ -60,8 +60,73 @@ function myHandBeatsYours(choice1, choice2) {
 }
 
 
+// A game function to start the game
+
+function game() {
+    // Prompt User
+    console.log("Hello Game!");
+    console.log("This will be a game of rock, paper scissors. Best out of 5 rounds wins!");
+    
+    // Get playerSelection and Computer Selectoin
+    let playerSelection;
+    let computerSelection;
+    let score = [0, 0];
+
+    // Play five rounds
+    for (let i = 0; i < 5; i++) {
+        // Get Player and computer Selection
+        playerSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
+        computerSelection = getComputerChoice();
+
+        // Get result then update the score
+        let result = playRound(playerSelection, computerSelection);
+        score = updateScore(score, result);
+
+        // Show result and score
+        console.log(result);
+        showScore(score);
+    }
+    
+    // Report Winner
+    reportWinner(score);
+}
 
 
+// A helper function to show the winner
+function reportWinner(score) {
+    let report;
+    // Check if player score is larger than computer score
+    if (score[0] > score[1]) {
+        report = "Player wins!";
+    }
+    // Check if the scores are a draw
+    else if (score[0] == score[1]) {
+        report = "Tis' a draw!";
+    }
+    // Check if the computer score is larger than the player score
+    else {
+        report = "Computer wins";
+    }
+
+    console.log(report);
+}
+
+// A helper function to update the score
+function updateScore(score, result) {
+    // Check two cases, if player won or if player lost
+    let resultChar = result.charAt(result.length - 1);
+    if (resultChar === 'n') {
+        score[0]++;
+    } else if (resultChar === 'e') {
+        score[1]++;
+    }
+
+    return score;
+}
 
 
-console.log("Hello Game!");
+// A helper function to show score
+function showScore(score) {
+    let text = "Score is " + score[0] + ", " + score[1] + ".";
+    console.log(text);
+}
