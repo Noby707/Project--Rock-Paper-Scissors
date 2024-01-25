@@ -6,9 +6,8 @@
 
 const choice = ["rock", "paper", "scissors"]; 
 
+// A function that returns rock, paper. or scissors.
 function getComputerChoice() {
-    // A function that returns rock, paper. or scissors.
-    
     // generateChoice will be randomly 0, 1, 2 and it will be an index for choice
     let generateChoice = Math.floor(Math.random() * 3);
 
@@ -16,12 +15,14 @@ function getComputerChoice() {
 }
 
 
+// Tests that values will always be between 0, 1, and 2
 function getComputerChoiceTester() {
-    // Tests that values will always be between 0, 1, and 2
     for(let i = 0; i < 100; i++) {
         console.log(getComputerChoice());
     }
 }
+
+
 
 
 
