@@ -132,4 +132,4 @@ function showScore(score) {
 }
 
 // Start the game
-game();
+// game();
