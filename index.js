@@ -87,8 +87,10 @@ scissorsButton.addEventListener('click', () => {
 });
 
 // EveryTime a round is played log the result
-let updateLog = (playerSelection, ComputerSelection) => {
-
+let updateLog = (playerSelection, computerSelection) => {
+    let length = Object.keys(logs).length;
+    let myKey = "round " + length;
+    logs[myKey] = [playerSelection, computerSelection];
 };
 
 
