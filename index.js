@@ -130,3 +130,6 @@ function showScore(score) {
     let text = "Score is " + score[0] + ", " + score[1] + ".";
     console.log(text);
 }
+
+// Start the game
+game();
