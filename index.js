@@ -64,6 +64,7 @@ const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
 
 let scoreTag = document.getElementById("score");
+let logsTag = document.getElementById("log");
 
 // Logs
 let logs = {}
@@ -76,6 +77,7 @@ rockButton.addEventListener('click', (event) => {
     // console.log(result);
 
     updateScore();
+    displayLogs();
 });
 
 paperButton.addEventListener('click', () => {
@@ -85,6 +87,7 @@ paperButton.addEventListener('click', () => {
     // console.log(result); 
 
     updateScore();
+    displayLogs();
 });
 
 scissorsButton.addEventListener('click', () => {
@@ -94,6 +97,7 @@ scissorsButton.addEventListener('click', () => {
     // console.log(result);
 
     updateScore();
+    displayLogs();
 });
 
 // EveryTime a round is played log the result
@@ -107,6 +111,21 @@ let updateScore = () => {
     scoreTag.textContent = `Score: ${score[0]}, ${score[1]}`;
 };
 
+let displayLogs = () => {
+    // let logStr = JSON.stringify(logs);
+    // logsTag.textContent = logStr;
 
-let logStr = JSON.stringify(logs);
-console.log("Log: " + logStr);
+    // logStr should display in order the rounds
+    //  round 1: rock, scissor
+    let logStr = "";
+    let keys = Object.keys(logs);
+    console.log(keys);
+
+    for(let round of keys) {
+        logStr += round + ": ";
+        logStr += logs[round][0] + ", " + logs[round][1] + "\n";
+    }
+
+    logsTag.textContent = logStr;
+};
+
