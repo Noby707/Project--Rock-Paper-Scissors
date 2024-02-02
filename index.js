@@ -27,8 +27,10 @@ function playRound(playerSelection, computerSelection) {
         let doesMyHandBeatsYours = myHandBeatsYours(playerSelection, computerSelection);
         if (doesMyHandBeatsYours) {
             result = "You played " + playerSelection + " and the computer played " + computerSelection + ". You win";
+            score[0]++;
         } else {
             result = "You played " + playerSelection + " and the computer played " + computerSelection + ". You lose";
+            score[1]++;
         }
     }
     return result;
