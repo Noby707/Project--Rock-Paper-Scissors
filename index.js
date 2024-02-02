@@ -63,6 +63,8 @@ const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
 
+let scoreTag = document.getElementById("score");
+
 // Logs
 let logs = {}
 
@@ -71,21 +73,27 @@ rockButton.addEventListener('click', (event) => {
     console.log("Player Played Rock");
     let result = playRound(choice[0], getComputerChoice());
 
-    console.log(result);
+    // console.log(result);
+
+    updateScore();
 });
 
 paperButton.addEventListener('click', () => {
     console.log("Player Played Paper");
     let result = playRound(choice[1], getComputerChoice());
 
-    console.log(result); 
+    // console.log(result); 
+
+    updateScore();
 });
 
 scissorsButton.addEventListener('click', () => {
     console.log("Player Played Scissors");
     let result = playRound(choice[2], getComputerChoice());
 
-    console.log(result);
+    // console.log(result);
+
+    updateScore();
 });
 
 // EveryTime a round is played log the result
@@ -93,6 +101,10 @@ let updateLog = (playerSelection, computerSelection) => {
     let length = Object.keys(logs).length;
     let myKey = "round " + length;
     logs[myKey] = [playerSelection, computerSelection];
+};
+
+let updateScore = () => {
+    scoreTag.textContent = `Score: ${score[0]}, ${score[1]}`;
 };
 
 
