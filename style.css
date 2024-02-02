@@ -4,11 +4,18 @@ body {
     height: 100%;
 }
 
-.game {
+.game, .info {
     height: 200px;
+}
+
+.game {
     background-color: honeydew;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.info {
+    background-color: bisque;
 }
