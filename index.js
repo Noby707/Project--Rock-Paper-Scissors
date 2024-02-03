@@ -64,7 +64,7 @@ const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
 
 let scoreTag = document.getElementById("score");
-let logsTag = document.getElementById("log");
+let logsDiv = document.getElementById("log");
 
 // Logs
 let logs = {}
@@ -113,19 +113,22 @@ let updateScore = () => {
 
 let displayLogs = () => {
     // let logStr = JSON.stringify(logs);
-    // logsTag.textContent = logStr;
+    // logsDiv.textContent = logStr;
 
     // logStr should display in order the rounds
     //  round 1: rock, scissor
     let logStr = "";
     let keys = Object.keys(logs);
-    console.log(keys);
+    // console.log(keys);
+    
+    let pTag = document.createElement("p");
 
     for(let round of keys) {
-        logStr += round + ": ";
-        logStr += logs[round][0] + ", " + logs[round][1] + "\n";
+        logStr = round + ": ";
+        logStr += logs[round][0] + ", " + logs[round][1];
+        pTag.textContent = logStr;
     }
 
-    logsTag.textContent = logStr;
+    logsDiv.appendChild(pTag);
 };
 
