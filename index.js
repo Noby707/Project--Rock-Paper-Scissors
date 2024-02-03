@@ -78,6 +78,7 @@ rockButton.addEventListener('click', (event) => {
 
     updateScore();
     displayLogs();
+    checkGameStatus();
 });
 
 paperButton.addEventListener('click', () => {
@@ -88,6 +89,7 @@ paperButton.addEventListener('click', () => {
 
     updateScore();
     displayLogs();
+    checkGameStatus();
 });
 
 scissorsButton.addEventListener('click', () => {
@@ -98,6 +100,7 @@ scissorsButton.addEventListener('click', () => {
 
     updateScore();
     displayLogs();
+    checkGameStatus();
 });
 
 // EveryTime a round is played log the result
@@ -131,4 +134,25 @@ let displayLogs = () => {
 
     logsDiv.appendChild(pTag);
 };
+
+let checkGameStatus = () => {
+    // Change Condition to a button pressed
+    // Disable all buttons and display game winner
+    if(logs["round 4"]) {
+        reset();
+    }
+};
+
+let reset = () => {
+    // Reset score
+    score = [0,0];
+    updateScore();
+    // Clear logs
+    logs = {};
+    updateLog();
+    // Clear Score 
+    while (logsDiv.firstChild) {
+        logsDiv.removeChild(logsDiv.firstChild);
+    }
+}
 
