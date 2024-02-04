@@ -5,7 +5,8 @@ body {
 }
 
 .game, .info {
-    height: 200px;
+    min-height: 200px;
+    min-width: 300px;
 }
 
 .game {
