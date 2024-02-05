@@ -70,8 +70,23 @@ let logsDiv = document.getElementById("log");
 let logs = {}
 
 
-rockButton.addEventListener('click', (event) => {
-    console.log("Player Played Rock");
+// rockButton.addEventListener('click', (event) => {
+//     console.log("Player Played Rock");
+//     let result = playRound(choice[0], getComputerChoice());
+
+//     // console.log(result);
+
+//     updateScore();
+//     displayLogs();
+//     checkGameStatus();
+// });
+
+
+
+let buttonEventHandler = (event) => {
+    // console.log(event.srcElement.idName);
+    let idName = event.srcElement.id;
+    console.log("Player Played " + idName);
     let result = playRound(choice[0], getComputerChoice());
 
     // console.log(result);
@@ -79,29 +94,13 @@ rockButton.addEventListener('click', (event) => {
     updateScore();
     displayLogs();
     checkGameStatus();
-});
+};
 
-paperButton.addEventListener('click', () => {
-    console.log("Player Played Paper");
-    let result = playRound(choice[1], getComputerChoice());
+rockButton.addEventListener('click', buttonEventHandler);
 
-    // console.log(result); 
+paperButton.addEventListener('click', buttonEventHandler);
 
-    updateScore();
-    displayLogs();
-    checkGameStatus();
-});
-
-scissorsButton.addEventListener('click', () => {
-    console.log("Player Played Scissors");
-    let result = playRound(choice[2], getComputerChoice());
-
-    // console.log(result);
-
-    updateScore();
-    displayLogs();
-    checkGameStatus();
-});
+scissorsButton.addEventListener('click', buttonEventHandler);
 
 // EveryTime a round is played log the result
 let updateLog = (playerSelection, computerSelection) => {
