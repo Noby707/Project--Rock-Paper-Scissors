@@ -69,6 +69,10 @@ let logsDiv = document.getElementById("log");
 // Logs
 let logs = {}
 
+// Reset button
+const restartTag = document.getElementsByClassName("restart")[0];
+const resetButton = document.createElement("button");
+resetButton.textContent = "Reset";
 
 // rockButton.addEventListener('click', (event) => {
 //     console.log("Player Played Rock");
@@ -153,5 +157,13 @@ let reset = () => {
     while (logsDiv.firstChild) {
         logsDiv.removeChild(logsDiv.firstChild);
     }
+}
+
+let addResetButton = () => {
+    restartTag.appendChild(resetButton);
+};
+
+let removeResetButton = () => {
+    restartTag.removeChild(resetButton);
 }
 
