@@ -100,15 +100,19 @@ let buttonEventHandler = (event) => {
     checkGameStatus();
 };
 
-rockButton.addEventListener('click', buttonEventHandler);
+let addButtonsEventListeners = () => {
+    rockButton.addEventListener('click', buttonEventHandler);
+    paperButton.addEventListener('click', buttonEventHandler);
+    scissorsButton.addEventListener('click', buttonEventHandler);
+};
 
-paperButton.addEventListener('click', buttonEventHandler);
+addButtonsEventListeners();
 
-scissorsButton.addEventListener('click', buttonEventHandler);
+
 
 // EveryTime a round is played log the result
 let updateLog = (playerSelection, computerSelection) => {
-    let length = Object.keys(logs).length;
+    let length = Object.keys(logs).length + 1;
     let myKey = "round " + length;
     logs[myKey] = [playerSelection, computerSelection];
 };
@@ -141,8 +145,9 @@ let displayLogs = () => {
 let checkGameStatus = () => {
     // Change Condition to a button pressed
     // Disable all buttons and display game winner
-    if(logs["round 4"]) {
-        reset();
+    if(logs["round 5"]) {
+        addResetButton();
+        disablePlayButtons();
     }
 };
 
@@ -157,6 +162,12 @@ let reset = () => {
     while (logsDiv.firstChild) {
         logsDiv.removeChild(logsDiv.firstChild);
     }
+
+    // Remove reset Button
+    removeResetButton();
+
+    // Add Event Listener to buttons again
+    addButtonsEventListeners();
 }
 
 let addResetButton = () => {
@@ -167,3 +178,11 @@ let removeResetButton = () => {
     restartTag.removeChild(resetButton);
 }
 
+let disablePlayButtons = () => {
+    rockButton.removeEventListener('click', buttonEventHandler);
+    paperButton.removeEventListener('click', buttonEventHandler);
+    scissorsButton.removeEventListener('click', buttonEventHandler);
+}
+
+
+resetButton.addEventListener('click', reset);
