@@ -149,6 +149,9 @@ let checkGameStatus = () => {
     if(logs["round 5"]) {
         addResetButton();
         disablePlayButtons();
+
+        // Display the winner
+        displayWinner();
     }
 };
 
@@ -183,6 +186,20 @@ let disablePlayButtons = () => {
     rockButton.removeEventListener('click', buttonEventHandler);
     paperButton.removeEventListener('click', buttonEventHandler);
     scissorsButton.removeEventListener('click', buttonEventHandler);
+}
+
+let displayWinner = () => {
+    let dispalyMessage = `Score is ${score[0]}, ${score[1]}, `;
+    
+    if (score[0] == score[1]) {
+        dispalyMessage += `it's a draw`;
+    } else if (score[0] > score[1]) {
+        displayMessage = `player wins!`;
+    } else if (score[0] < score[1]) {
+        displayMessage = `computer wins!`;
+    }
+
+    alert(displayMessage);
 }
 
 
