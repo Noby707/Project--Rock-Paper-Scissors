@@ -90,8 +90,9 @@ resetButton.textContent = "Reset";
 let buttonEventHandler = (event) => {
     // console.log(event.srcElement.idName);
     let idName = event.srcElement.id;
+    let choice = idName;
     console.log("Player Played " + idName);
-    let result = playRound(choice[0], getComputerChoice());
+    let result = playRound(choice, getComputerChoice());
 
     // console.log(result);
 
