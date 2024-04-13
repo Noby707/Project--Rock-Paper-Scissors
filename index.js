@@ -4,7 +4,7 @@
 //  User gets result for current round
 //  Repeat rounds till best out of five wins
 
-const choice = ["rock", "paper", "scissors"]; 
+const CHOICE = ["rock", "paper", "scissors"]; 
 let score = [0, 0];
 
 
@@ -13,7 +13,7 @@ function getComputerChoice() {
     // generateChoice will be randomly 0, 1, 2 and it will be an index for choice
     let generateChoice = Math.floor(Math.random() * 3);
 
-    return choice[generateChoice];
+    return CHOICE[generateChoice];
 }
 
 // A function that plays a single round given two choice items
@@ -41,11 +41,11 @@ function playRound(playerSelection, computerSelection) {
 function myHandBeatsYours(choice1, choice2) {
     // Check choice 1 in all three cases
     let result = 1;
-    if (choice1 === choice[0] && choice2 === choice[1]) {
+    if (choice1 === CHOICE[0] && choice2 === CHOICE[1]) {
         result = 0;
-    } else if (choice1 === choice[1] && choice2 === choice[2]) {
+    } else if (choice1 === CHOICE[1] && choice2 === CHOICE[2]) {
         result = 0;
-    } else if (choice1 === choice[2] && choice2 === choice[0]) {
+    } else if (choice1 === CHOICE[2] && choice2 === CHOICE[0]) {
         result = 0;
     }
 
@@ -76,7 +76,7 @@ resetButton.textContent = "Reset";
 
 // rockButton.addEventListener('click', (event) => {
 //     console.log("Player Played Rock");
-//     let result = playRound(choice[0], getComputerChoice());
+//     let result = playRound(CHOICE[0], getComputerChoice());
 
 //     // console.log(result);
 
