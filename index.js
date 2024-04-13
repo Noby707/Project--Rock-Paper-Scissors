@@ -143,10 +143,19 @@ let displayLogs = () => {
     logsDiv.appendChild(pTag);
 };
 
+// Checks game by checking if a score is 5 points
 let checkGameStatus = () => {
     // Change Condition to a button pressed
     // Disable all buttons and display game winner
-    if(logs["round 5"]) {
+    // if(logs["round 5"]) {
+    //     addResetButton();
+    //     disablePlayButtons();
+
+    //     // Display the winner
+    //     displayWinner();
+    // }
+
+    if(score[0] == 5 || score[1] == 5) {
         addResetButton();
         disablePlayButtons();
 
